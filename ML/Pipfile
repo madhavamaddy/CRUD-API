@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 pytesseract = "*"
+opencv-python = "*"
+numpy = "*"
+matplotlib = "*"
 
 [dev-packages]
 
