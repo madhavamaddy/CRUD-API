@@ -1,21 +1,17 @@
-from PIL import Image
-from pytesseract import pytesseract
+#use 3 python lib
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
-# Defining paths to tesseract.exe
-# and the image we would be using
-path_to_tesseract = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-image_path = r".\IELTS-template.jpg"
 
-# Opening the image & storing it in an image object
-img = Image.open(image_path)
+img=cv2.imread("IELTS-template.jpg")
 
-# Providing the tesseract executable
-# location to pytesseract library
-pytesseract.tesseract_cmd = path_to_tesseract
+#bgr to rgb
+RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-# Passing the image object to image_to_string() function
-# This function will extract the text from the image
-text = pytesseract.image_to_string(img)
+#matplo method
+plt.imshow(RGB_img)
 
-# Displaying the extracted text
-print(text[:-1])
+# gui window
+plt.waitforbuttonpress()
+plt.close('all')
